@@ -24,19 +24,13 @@ app.get('/connect', function(request, response) {
 app.get('/server/minecraft/:command', function(request, response) {
   var command;
   console.log("Got the command: " + request.params.command);
-  switch (request.params.command) {
-    case 'stop':
-      command = "screen -r Minecraft && stop";
-      break;
-    default:
-      response.send("Invalid command");
-      break;
-  }
+  command = 'service minecraft ' + request.params.command;
   child = exec(command, function(error, stdout, stderr){
     if (error != null) {
       console.log('exec error: ' + error);
     };
     response.set('Content-Type', 'text/html');
+    response.write('command: ' + command + "<br/>");
     response.write('stdout: ' + stdout + "<br/>");
     response.write('stderr: ' + stderr + "<br/>");
     response.end();

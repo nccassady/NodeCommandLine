@@ -1,0 +1,10 @@
+{
+	"name": "minecraft-server-command-line-tool",
+	"description": "A command line to monitor and control a Minecraft server",
+	"author": "Nick Cassady <nccassady@gmail.com>",
+	"dependencies": {
+		"express": "4.2.x",
+		"redis": "0.10.x"
+	},
+	"engine": "node = 0.10.30"
+}
